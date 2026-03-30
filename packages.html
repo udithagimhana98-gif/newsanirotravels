@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tour Packages - New Saniro Travels</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Logo Styling */
+.logo img {
+  height: 40px;   /* adjust if needed */
+  width: auto;
+  display: block;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  right: 25px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  line-height: 60px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+  transform: scale(1.1);
+}
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* BODY */
+body {
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo svg text:first-child {
+  fill: #0a4b78;
+  font-weight: 700;
+}
+header .logo svg text:last-child {
+  fill: #f39c12;
+  font-weight: 500;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #0a4b78;
+  font-weight: 500;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: #f39c12;
+}
+
+/* SECTION */
+.section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.section h2 {
+  text-align: center;
+  color: #0a4b78;
+  font-size: 36px;
+  margin-bottom: 40px;
+  position: relative;
+}
+.section h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background: #f39c12;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* CARD STYLING */
+.card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  color: #0a4b78;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.card h4, .card h5 {
+  color: #f39c12;
+  margin: 15px 0 10px;
+}
+
+.card p.small-text {
+  font-size: 15px;
+  color: #555;
+}
+
+.card ul {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 0;
+}
+.card ul li {
+  padding: 8px 0;
+  border-left: 3px solid #f39c12;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+/* TOGGLE DETAILS */
+.package-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding-top: 0;
+}
+.toggle-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #0a4b78;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.toggle-btn:hover {
+  background: #f39c12;
+  color: #fff;
+}
+
+/* STARTING PRICE */
+.card p strong {
+  color: #0a4b78;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px 20px;
+  background: #0a4b78;
+  color: #fff;
+  margin-top: 50px;
+  font-size: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    margin-top: 10px;
+  }
+  nav a {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .card h3 {
+    font-size: 24px;
+  }
+}
+/* Make card relative so absolute positioning works */
+.card {
+  position: relative; /* add this */
+}
+
+/* Book Now button at bottom-right with new color */
+.book-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 25px;
+  background: #28a745;       /* new green color */
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.book-btn:hover {
+  background: #218838;       /* darker green on hover */
+  color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        <img src="images/logo.png" alt="New Saniro Travels Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+        <a href="destinations.html">Destinations</a>
+    </nav>
+</header>
+
+<section class="section">
+<h2>Tour Packages</h2>
+
+<div class="card package-card">
+    <h3>Highland Trek Quest</h3>
+
+    <p class="small-text">
+        Experience Sri Lanka’s highlands, tea trails, and rainforests on this adventure-packed tour. Hike scenic trails, visit waterfalls, explore wildlife parks, and discover cultural landmarks — perfect for nature and trekking enthusiasts.
+<br><br><h4>🧭 Tour Overview</h4><br>
+Meals: According to your preferences<br>
+Hotels: 09 nights of hotel accommodation<br>
+Transport: By air-conditioned vehicle
+    </p>
+
+    <p><strong>Starting from:</strong> LKR </p>
+
+    <button class="toggle-btn" onclick="toggleDetails(this)">
+        More Details
+    </button>
+	<a href="contact.html?package=Highland%20Trek%20Quest" class="book-btn">
+    Book Now
+</a>
+    <div class="package-details">
+        <h5>Package Includes and Destinations</h5>
+        <ul>
+            <li>
+🛕 <b>Temple of the Tooth Relic – Kandy</b> <br>
+Visit Sri Lanka’s most sacred Buddhist temple, housing the revered Tooth Relic of the Buddha.
+Experience spiritual rituals and the cultural heart of the hill capital.</li>
+<li>🌄 <b>Knuckles Trek (Part)</b><br>
+Explore the foothills of the Knuckles Mountain Range with scenic forest trails.
+Enjoy fresh mountain air, biodiversity, and panoramic views.</li>
+<li>🌳 <b>Udawatta Kele Sanctuary</b><br>
+Walk through a protected forest reserve rich in birdlife and native flora.
+A peaceful nature escape in the heart of Kandy.</li>
+<li>🍃<b> Tea Factory & Plantation Visit</b><br>
+Learn how world-famous Ceylon tea is produced from leaf to cup.
+Stroll through lush tea estates and enjoy fresh tea tasting.</li>
+<li>🏞️ <b>Horton Plains National Park</b><br>
+Hike through montane grasslands and cloud forests.
+Visit World’s End cliff and Baker’s Falls.</li>
+<li>🚶 <b>Pekoe Trail – Stage 22 (Kandapola to Pedro Estate)</b><br>
+Walk through scenic tea plantations and rural villages.
+One of the most beautiful stages near Nuwara Eliya.</li>
+<li>💦<b> Upper Diyaluma Waterfalls Trek</b><br>
+Trek to Sri Lanka’s second-highest waterfall with natural rock pools.
+Enjoy breathtaking viewpoints and refreshing swims.</li>
+<li>🌉 <b>Nine Arches Bridge</b><br>
+Visit the iconic colonial-era railway bridge surrounded by jungle.
+Perfect spot for photos and train sightings.</li>
+<li>🏔️ <b>Little Adam’s Peak</b><br>
+An easy hike offering stunning views of Ella Gap and tea estates.
+Ideal for sunrise or sunset hikes.</li>
+<li>🐘 <b>Udawalawa National Park Jeep Safari</b><br>
+Experience a wildlife safari famous for wild elephants.
+Chance to see buffalo, deer, crocodiles, and birdlife.</li>
+<li>🌴 <b>Sinharaja Rain Forest (Part)</b><br>
+Guided walk in Sri Lanka’s last primary rainforest.
+Discover endemic plants, birds, and tropical ecosystems.</li>
+<li>🏙️ <b>Colombo City Tour</b><br>
+Explore key highlights of Sri Lanka’s commercial capital.
+A mix of colonial landmarks, modern life, and local culture.
+</li>
+        </ul>
+<br><hr>
+        <h5>🗺️ Route & Daily Program</h5>
+        <p><b>Day 01:</b> Airport – Temple of the Tooth Relic – Kandy<br>
+<b>Day 02:</b> Kandy – Part of Knuckles Trek – Kandy<br>
+<b>Day 03:</b> Kandy – Udawatta Kele Sanctuary – Tea Factory & Plantation – Nuwara Eliya<br>
+<b>Day 04:</b> Nuwara Eliya – Horton Plains National Park hike – Nuwara Eliya<br>
+<b>Day 05:</b> Nuwara Eliya – Pekoe Trail Stage 22 (Kandapola to Pedro Estate) – Ella<br>
+<b>Day 06:</b> Ella – Upper Diyaluma Waterfalls trek – Nine Arches Bridge – Leisure – Ella<br>
+<b>Day 07:</b> Ella – Little Adam’s Peak hike – Udawalawa Jeep Safari – Udawalawa<br>
+<b>Day 08:</b> Udawalawa – Sinharaja Rain Forest (part) – Sinharaja<br>
+<b>Day 09:</b> Sinharaja – Colombo City Tour – Colombo<br>
+<b>Day 10:</b> Colombo – Departure
+</p>
+<br><hr>
+        <h5>Notes</h5>
+        <p class="small-text">
+            Prices may vary based on season and hotel category.
+            Customizations available on request.
+        </p>
+    </div>
+</div><br>
+
+
+<div class="card package-card">
+    <h3>Nature & Ruins Expedition</h3>
+
+    <p class="small-text">
+	Explore Sri Lanka’s ancient cities, wildlife, waterfalls, and beaches on this culture-and-nature-packed tour. Discover UNESCO heritage sites, enjoy jeep safaris, trek scenic spots, and relax along pristine beaches
+<br><br><h4>🧭 Tour Overview</h4><br>
+Meals: According to your preferences<br>
+Hotels: 11 nights of hotel accommodation<br>
+Transport: By air-conditioned vehicle
+    </p>
+
+    <p><strong>Starting from:</strong> LKR </p>
+
+    <button class="toggle-btn" onclick="toggleDetails(this)">
+        More Details
+    </button>
+	<a href="contact.html?package=Nature%20%26%20Ruins%20Expedition" class="book-btn">
+    Book Now
+</a>
+    <div class="package-details">
+        <h5>🥾 Activities Included</h5>
+        <ul>
+            <li>
+🛕 <b>Temple of the Tooth Relic – Kandy</b> <br>
+Visit Sri Lanka’s most sacred Buddhist temple, housing the revered Tooth Relic of the Buddha.
+Experience spiritual rituals and the cultural heart of the hill capital.</li>
+<li>🐘 <b>Wilpattu National Park Jeep Safari</b><br>
+Morning and/or evening safari to spot elephants, leopards, sloth bears, and abundant birdlife in Sri Lanka’s largest national park.</li>
+<li>🏛️  <b>Anuradhapura Ancient City</b><br>
+Explore the sacred city of Anuradhapura with its stupas, Bodhi tree, and ancient ruins. Learn about Sri Lanka’s early civilization and Buddhist heritage.</li>
+<li>🪷<b> Aukana Buddha Statue</b><br>
+See the towering 12-meter high rock-carved Buddha statue, one of Sri Lanka’s finest ancient sculptures.</li>
+<li>🚤 <b>Rural Village & Catamaran Boat Ride</b><br>
+Experience rural life on a boat ride through peaceful waterways, observing local culture and scenic nature.</li>
+<li>🏰 <b>Sigiriya Rock Fortress</b><br>
+Climb the iconic UNESCO World Heritage site, with frescoes, water gardens, and panoramic views.</li>
+<li>🏛️ <b> Polonnaruwa Ancient City</b><br>
+Discover another UNESCO site, with well-preserved ruins, temples, and statues from Sri Lanka’s medieval kingdom.</li>
+<li>🛖 <b>Barth in a Tank Experience</b><br>
+Interact with locals and enjoy a unique traditional water activity in rural surroundings.</li>
+<li>🛕  <b>Dambulla Cave Temple</b><br>
+Explore the impressive rock temple complex with centuries-old Buddhist murals and statues.</li>
+<li>🌿<b>Matale Spice Garden</b><br>
+Learn about Sri Lanka’s spices, herbs, and medicinal plants. Enjoy hands-on demonstrations and aroma trails.</li>
+<li>💃 <b>Kandy Cultural Dance Show</b><br>
+Enjoy a lively traditional performance showcasing Kandyan dances, drumming, and folklore.</li>
+<li>⛪  <b>Three Loops’ Temples – Kandy</b><br>
+Visit a cluster of historic temples offering spiritual insight and scenic surroundings.
+</li>
+<li>🌄 <b>Ramboda Falls & Tea Factory Visit – Nuwara Eliya</b><br>
+Stop for photos at cascading waterfalls and tour a working tea plantation. Enjoy fresh Ceylon tea and high tea at the iconic Grand Hotel.
+</li>
+<li>🏞️  <b>Kithulgala White Water Rafting</b><br>
+Adventure through rapids surrounded by jungle scenery on a guided rafting experience.
+</li>
+<li>🏖️  <b>Bentota Beach</b><br>
+Relax on golden sands, enjoy water sports, or explore coastal nature along the tranquil southwest coast.
+</li>
+        </ul>
+<br><hr>
+        <h5>🗺️ Route & Daily Program</h5>
+        <p><b>Day 01:</b> Airport – Wilpattu<br>
+<b>Day 02:</b> Jeep Safari at Wilpattu National Park – Anuradhapura Ancient City – Anuradhapura<br>
+<b>Day 03:</b>Anuradhapura – Aukana Buddha Statue – Rural Village Tour with Catamaran Boat Ride – Sigiriya<br>
+<b>Day 04:</b>Sigiriya – Polonnaruwa Ancient City – Barth in a Tank – Sigiriya<br>
+<b>Day 05:</b> Sigiriya – Sigiriya Rock Fortress – Dambulla Cave Temple – Matale Spice Garden – Kandy Cultural Dance Show – Temple of the Tooth Relic – Kandy<br>
+<b>Day 06:</b> : Kandy – Three Loops’ Temples – Kandy<br>
+<b>Day 07:</b> Kandy – Ramboda Falls Photo Stop – Nuwara Eliya – Tea Factory & Plantation Visit – High Tea at Grand Hotel – Nuwara Eliya<br>
+<b>Day 08:</b> Nuwara Eliya – Kithulgala White Water Rafting – Bentota<br>
+<b>Day 09:</b>Bentota – Beach & Leisure<br>
+<b>Day 10:</b> Bentota – Beach & Optional Activities<br>
+<b>Day 11:</b> Bentota – Relaxation & Nature Walks<br>
+<b>Day 12:</b> Bentota – Departure
+</p>
+<br><hr>
+        <h5>Notes</h5>
+        <p class="small-text">
+            Prices may vary based on season and hotel category.
+            Customizations available on request.
+        </p>
+    </div>
+</div><br>
+
+
+<div class="card package-card">
+    <h3>Island Life & Coastal Wonders </h3>
+
+    <p class="small-text">
+	Experience Sri Lanka’s cultural treasures, lush landscapes, waterfalls, and wildlife on this immersive 14-day journey. Explore ancient cities, hike scenic trails, enjoy safaris, and relax along pristine beaches.
+<br><br><h4>🧭 Tour Overview</h4><br>
+Meals: According to your preferences<br>
+Hotels: 13 nights of hotel accommodation<br>
+Transport: By air-conditioned vehicle
+    </p>
+
+    <p><strong>Starting from:</strong> LKR </p>
+
+    <button class="toggle-btn" onclick="toggleDetails(this)">
+        More Details
+    </button>
+	<a href="contact.html?package=Island%20Life%20%26%20Coastal%20Wonders" class="book-btn">
+    Book Now
+</a>
+    <div class="package-details">
+        <h5>🥾 Activities Included</h5>
+        <ul>
+            <li>
+🛕 <b>Temple of the Tooth Relic – Kandy</b> <br>
+Visit Sri Lanka’s most sacred Buddhist temple. Witness daily rituals and explore the spiritual heart of Kandy.</li>
+<li><b>🏞️ Waterfall Hikes – Kaluwawatuna Ella & Rathna Ella</b><br>
+Trek scenic trails to beautiful waterfalls surrounded by lush forest and tea estates.</li>
+<li>🌳 <b>Udawatta Kele Sanctuary</b><br>
+Walk through a protected forest reserve rich in birdlife and native flora.
+A peaceful nature escape in the heart of Kandy.</li>
+<li><b> 🌄 Ella Rock Hike & Nine Arches Bridge</b><br>
+Enjoy panoramic views from Ella Rock and photograph the iconic colonial-era railway bridge.</li>
+<li><b>🐘 Udawalawa & Yala National Parks Jeep Safaris</b><br>
+Spot wild elephants, leopards, crocodiles, and abundant birdlife in two of Sri Lanka’s top wildlife parks.</li>
+<li> <b>🐾 Elephant Transit Home</b><br>
+Visit the rehabilitation center for orphaned elephants and learn about conservation efforts.</li>
+<li><b>🏛️ Sigiriya Rock Fortress & Dambulla Cave Temple</b><br>
+Climb the ancient rock fortress and explore the cave temple complex with centuries-old murals and Buddha statues.</li>
+<li> <b>🏛️ Polonnaruwa Ancient City</b><br>
+Discover the ruins of Sri Lanka’s medieval capital, including stupas, temples, and royal palaces.</li>
+<li> <b>🌿 Matale Spice Garden</b><br>
+Learn about local spices, herbs, and traditional medicinal plants, with aroma trails and demonstrations.</li>
+<li><b>🍴 “Lellama” Participation & Cooking Demonstration</b><br>
+Experience a traditional Sri Lankan fishing market and participate in a cooking class to prepare authentic dishes.</li>
+<li><b>💃 Cultural Dance Show</b><br>
+Enjoy Kandyan dance and folklore performances, showcasing vibrant costumes and drumming.</li>
+<li><b>🏡 Countryside Village Walk & Local Lunch on River Deck</b><br>
+Interact with locals and enjoy freshly prepared meals amidst rural scenery.
+</li>
+<li><b>🚤 Mirissa Whale Watching</b><br>
+Embark on an early morning boat trip to see blue whales, sperm whales, and dolphins in their natural habitat.
+</li>
+<li><b>🏙️ Colombo City Tour</b><br>
+Explore key landmarks, colonial heritage sites, and local culture in Sri Lanka’s commercial capital.
+</li>
+        </ul>
+<br><hr>
+        <h5>🗺️ Route & Daily Program</h5>
+        <p><b>Day 01:</b> : Airport – Negombo<br>
+<b>Day 02:</b> Negombo – Participate in “Lellama” – Cooking Demonstration – Colombo<br>
+<b>Day 03:</b> Colombo – Dambulla Cave Temple – Sigiriya Rock Fortress – Habarana<br>
+<b>Day 04:</b> Habarana – Polonnaruwa Ancient City – Jeep Safari at Minneriya National Park – Habarana<br>
+<b>Day 05:</b>  Habarana – Matale Spice Garden – Cultural Dance Show – Temple of the Tooth Relic – Kandy<br>
+<b>Day 06:</b>  Kandy – Hike to Kaluwawatuna Ella & Rathna Ella Waterfall – Nine Arches Bridge – Ella<br>
+<b>Day 07:</b>Ella – Ella Rock Hike – Leisure – Ella<br>
+<b>Day 08:</b> Ella – Countryside Village Walk & Local Lunch on River Deck – Udawalawa<br>
+<b>Day 09:</b> Udawalawa – Elephant Transit Home – Jeep Safari at Yala National Park<br>
+<b>Day 10:</b> Yala – Mirissa<br>
+<b>Day 11:</b> Mirissa – Whale Watching<br>
+<b>Day 12:</b> Mirissa – Beach & Leisure<br>
+<b>Day 13:</b> Mirissa – Colombo City Tour – Colombo<br>
+<b>Day 14:</b> Colombo – Departure
+</p>
+<br><hr>
+        <h5>Notes</h5>
+        <p class="small-text">
+            Prices may vary based on season and hotel category.
+            Customizations available on request.
+        </p>
+    </div>
+</div><br>
+
+
+</section>
+
+<footer>
+<p>© 2026 New Saniro Travels | All Rights Reserved</p>
+</footer>
+
+<script>
+function toggleDetails(button) {
+    const card = button.closest(".card");
+    const details = card.querySelector(".package-details");
+
+    if (details.style.maxHeight) {
+        details.style.maxHeight = null;
+        button.innerText = "More Details";
+    } else {
+        details.style.maxHeight = details.scrollHeight + "px";
+        button.innerText = "Hide Details";
+    }
+}
+</script>
+<script>
+/* ===== BOOK NOW BUTTON (Same Style as More Details) ===== */
+
+.book-now,
+.book-btn {
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #0a4b78;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.book-now:hover,
+.book-btn:hover {
+  background: #f39c12;
+  color: #fff;
+}
+</script>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/94770000000" 
+   class="whatsapp-float" 
+   target="_blank">
+   💬
+</a>
+</body>
+</html>

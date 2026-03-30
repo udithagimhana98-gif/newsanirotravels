@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Us - New Saniro Travels</title>
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* Logo Styling */
+.logo img {
+  height: 40px;   /* adjust if needed */
+  width: auto;
+  display: block;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  right: 25px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  line-height: 60px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+  transform: scale(1.1);
+}
+/* HERO SECTION */
+.hero-about {
+    background: linear-gradient(rgba(10,75,120,0.8), rgba(10,75,120,0.8)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-about h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero-about p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* SECTION DESIGN */
+.section {
+    padding: 60px 80px;
+    line-height: 1.8;
+}
+
+.section h2 {
+    color: #0a4b78;
+    margin-bottom: 20px;
+    font-size: 30px;
+    border-left: 5px solid #f39c12;
+    padding-left: 15px;
+}
+
+/* CARD STYLE */
+.card {
+    background: #ffffff;
+    padding: 30px;
+    margin: 30px 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* LOCATION GRID */
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.location-item {
+    background: #f5f7fa;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #0a4b78;
+}
+
+/* HOTEL TITLE */
+.hotel-title {
+    font-size: 20px;
+    color: #f39c12;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* VISION BOX */
+.vision-box {
+    background: linear-gradient(135deg, #0a4b78, #083456);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+footer {
+    background: #0a4b78;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media(max-width:768px){
+    .section{
+        padding:40px 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        <img src="images/logo.png" alt="New Saniro Travels Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+        <a href="destinations.html">Destinations</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero-about">
+    <h1>About New Saniro Travels</h1>
+    <p>Trusted Travel Solutions Backed by a Powerful Sri Lankan Business Legacy</p>
+</section>
+
+<!-- ABOUT TRAVEL COMPANY -->
+<section class="section">
+
+<div class="card">
+<p>
+New Saniro Travels is a trusted travel agency dedicated to providing reliable and affordable travel solutions for local and international travelers. Our goal is to make every journey smooth, comfortable, and memorable.
+</p>
+
+<p>
+With strong industry connections and customer-focused service, we specialize in tour planning, hotel reservations, and airport transfer services. We prioritize safety, transparency, and customer satisfaction in every booking.
+</p>
+
+<p>
+Whether you are traveling for leisure, business, or family vacations, New Saniro Travels is here to support you every step of the way.
+</p>
+</div>
+
+<h2>New Saniro Group of Companies</h2>
+
+<div class="card">
+<p>
+The origins of the New Saniro Group of Companies date back to 1975, when Mr. Reginald Stanley and Mrs. Sirima Gamage founded the “Saniro” business. With family dedication and entrepreneurial vision, this small enterprise became the foundation of today’s New Saniro Industries.
+</p>
+
+<p>
+In 1998, Mr. A.A.D. Imal Shantha Kumara and General Manager Mrs. T.D.M. Niluka Damayanthi established New Saniro Industries in Avissawella with only six employees. Today, it has grown into a large business group operating factories, showrooms, and hotels across Sri Lanka.
+</p>
+</div>
+
+<h2>Our Locations</h2>
+
+<div class="location-grid">
+    <div class="location-item">Avissawella</div>
+    <div class="location-item">Tihariya</div>
+    <div class="location-item">Veyangoda</div>
+    <div class="location-item">Naiwala</div>
+    <div class="location-item">Tangalle</div>
+    <div class="location-item">Chilaw</div>
+    <div class="location-item">Kiribathgoda</div>
+    <div class="location-item">Negombo</div>
+    <div class="location-item">Embilipitiya</div>
+</div>
+
+<h2>Hotels of the New Saniro Group</h2>
+
+<div class="card">
+    <div class="hotel-title">🏨 New Saniro Lagoon Deck Hotel</div>
+    <p>Located near Negombo Lagoon, offering peaceful surroundings, seafood cuisine, swimming pool, banquet halls, and water activities. Only 3.5 km from Bandaranaike International Airport.</p>
+
+    <div class="hotel-title">🏨 New Saniro Airport Sport Complex Hotel</div>
+    <p>A family entertainment paradise with roller coaster, VR cinema, swimming pools, auditorium, restaurant, indoor tennis courts, and Sri Lanka’s only private cricket ground.</p>
+
+    <div class="hotel-title">🏨 New Saniro Kajugama Nature Hotel</div>
+    <p>Built on a hillside along the Colombo–Kandy road, featuring international cuisine, coffee & juice bar, banquet halls, hilltop pub, and star-class rooms at reasonable prices.</p>
+</div>
+
+<div class="vision-box">
+    <h2>🎯 Our Vision</h2>
+    <p>
+    Guided by strong leadership and dedicated staff, our vision is to reduce unemployment in Sri Lanka while contributing to the national economy through high-quality products and excellent services.
+    </p>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 New Saniro Travels | All Rights Reserved</p>
+</footer>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/94770000000" 
+   class="whatsapp-float" 
+   target="_blank">
+   💬
+</a>
+</body>
+</html>

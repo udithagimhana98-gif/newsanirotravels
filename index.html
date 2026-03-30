@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Saniro Travels</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+	<style>
+	/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  right: 25px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  line-height: 60px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+  transform: scale(1.1);
+}
+/* Logo Styling */
+.logo img {
+  height: 40px;   /* adjust if needed */
+  width: auto;
+  display: block;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+	</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        <img src="images/logo.png" alt="New Saniro Travels Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+        <a href="destinations.html">Destinations</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+    <div class="slider">
+        <img src="images/hero1.jpg" class="slide active">
+        <img src="images/hero2.jpg" class="slide">
+        <img src="images/hero3.jpg" class="slide">
+    </div>
+
+    <div class="hero-content">
+        <h1>Explore Sri Lanka with Confidence</h1>
+        <p>Trusted Hospitality Since 1975</p>
+    </div>
+
+</section>
+
+<!-- WELCOME -->
+<section class="welcome">
+    <h2>Welcome to New Saniro Travels</h2>
+    <p>
+        Discover the beauty of Sri Lanka through carefully crafted journeys designed for comfort, authenticity, and unforgettable memories. With quality accommodations, seamless coordination, and personalized service, we ensure every detail of your travel experience is handled with care.
+    </p>
+
+    <div class="features">
+        <div class="feature">✔ 50+ Years of Hospitality</div>
+        <div class="feature">✔ Own Hotel Network</div>
+        <div class="feature">✔ Customized Tours</div>
+        <div class="feature">✔ Professional Service</div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+    <h2>Our Services</h2>
+
+    <div class="service-cards">
+        <div class="service-card">Hotel Accommodation</div>
+        <div class="service-card">Airport Transfers</div>
+        <div class="service-card">Tailor-Made Tours</div>
+        <div class="service-card">Professional Service</div>
+    </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages">
+    <h2>Popular Packages</h2>
+
+    <div class="package-grid">
+
+        <div class="package-card">
+            <!-- PACKAGE IMAGE -->
+            <!-- <img src="images/package1.jpg"> -->
+            <h3>Beachfront Paradise</h3>
+            <p>5 Days / 4 Nights</p>
+            <span>From $</span>
+            <a href="contact.html?package=Beachfront Paradise - 5 Days / 4 Nights - $">
+                Book Now
+            </a>
+        </div>
+
+        <div class="package-card">
+            <!-- <img src="images/package2.jpg"> -->
+            <h3>Hilltop Resort Kandy</h3>
+            <p>4 Days / 3 Nights</p>
+            <span>From $</span>
+            <a href="contact.html?package=Hilltop Resort Kandy - 4 Days / 3 Nights - $">
+                Book Now
+            </a>
+        </div>
+
+        <div class="package-card">
+            <!-- <img src="images/package3.jpg"> -->
+            <h3>Tropical Garden Hotel</h3>
+            <p>3 Days / 2 Nights</p>
+            <span>From $</span>
+            <a href="contact.html?package=Tropical Garden Hotel - 3 Days / 2 Nights - $">
+                Book Now
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+    <h2>What Our Clients Say</h2>
+
+    <div class="testimonial-box">
+        <p>
+            “Excellent service and comfortable hotels. Our Sri Lanka tour was beyond expectations.”
+        </p>
+        <strong>— Emma R | Australia</strong>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 New Saniro Travels | All Rights Reserved</p>
+</footer>
+
+<!-- SLIDER SCRIPT -->
+<script>
+let slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function changeSlide() {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+}
+
+setInterval(changeSlide, 3000);
+</script>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/94770000000" 
+   class="whatsapp-float" 
+   target="_blank">
+   💬
+</a>
+</body>
+</html>
